@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
-import { Phone, Mail, MapPin, Building2, Zap } from 'lucide-react'
+import { Phone, Mail, MapPin, Building2, Zap, ExternalLink } from 'lucide-react'
+
+const MAPS_URL = 'https://www.google.com/maps?cid=5862024888204172403'
 
 export default function Contact() {
   const ref = useRef<HTMLDivElement>(null)
@@ -116,7 +118,16 @@ export default function Contact() {
               <div>
                 <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Oblast působení</div>
                 <div className="text-sm font-semibold text-zinc-200 leading-snug">Praha a Středočeský kraj</div>
-                <div className="text-xs text-zinc-500 mt-0.5">Kamenný Přívoz, Pohoří a okolí</div>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-amber-400 transition-colors duration-200 mt-0.5 group"
+                  aria-label="Otevřít adresu v Google Maps"
+                >
+                  <span>Pohoří, Chotouň ev. č. 423, 254 01</span>
+                  <ExternalLink className="w-3 h-3 shrink-0 opacity-60 group-hover:opacity-100 transition-opacity duration-200" aria-hidden="true" />
+                </a>
               </div>
             </div>
 

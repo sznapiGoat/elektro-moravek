@@ -1,4 +1,6 @@
-import { Zap, Phone } from 'lucide-react'
+import { Zap, Phone, MapPin } from 'lucide-react'
+
+const MAPS_URL = 'https://www.google.com/maps?cid=5862024888204172403'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -24,11 +26,23 @@ export default function Footer() {
           {/* Emergency line */}
           <a
             href="tel:+420775551927"
-            className="flex items-center gap-2 text-xs font-bold text-zinc-500 hover:text-amber-400 transition-colors tracking-wide uppercase"
+            className="flex items-center gap-2 text-xs font-bold text-zinc-500 hover:text-amber-400 transition-colors duration-200 tracking-wide uppercase"
             aria-label="Pohotovostní linka +420 775 551 927"
           >
             <Phone className="w-3.5 h-3.5" aria-hidden="true" />
             +420 775 551 927
+          </a>
+
+          {/* Address → Google Maps */}
+          <a
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-[10px] font-medium text-zinc-600 hover:text-amber-400 transition-colors duration-200 tracking-wide"
+            aria-label="Otevřít adresu v Google Maps: Pohoří, Chotouň ev. č. 423, 254 01"
+          >
+            <MapPin className="w-3 h-3 shrink-0" aria-hidden="true" />
+            Pohoří, Chotouň ev. č. 423, 254 01
           </a>
 
           {/* Copyright */}

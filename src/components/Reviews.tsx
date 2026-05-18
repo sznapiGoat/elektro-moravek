@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
-import { Star, Quote } from 'lucide-react'
+import { Star, Quote, ExternalLink } from 'lucide-react'
+
+const MAPS_URL = 'https://www.google.com/maps?cid=5862024888204172403'
 
 interface Review {
   id: string
@@ -162,27 +164,38 @@ export default function Reviews() {
             </motion.p>
           </div>
 
-          {/* Aggregate score */}
-          <motion.div
+          {/* Aggregate score — links to Google Maps reviews */}
+          <motion.a
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.4, delay: 0.25, ease: 'easeOut' }}
-            className="flex items-center gap-4 p-5 border border-amber-500/30 bg-amber-500/5 shrink-0"
+            whileHover={{ y: -1 }}
+            className="group flex flex-col gap-3 p-5 border border-amber-500/30 bg-amber-500/5 hover:border-amber-500/50 hover:bg-amber-500/8 transition-colors duration-200 shrink-0"
+            aria-label="Zobrazit ověřené recenze na Google Maps — hodnocení 5.0 z 5"
           >
-            <div>
-              <div className="text-4xl font-black text-amber-400 leading-none tabular-nums">5.0</div>
-              <div className="flex items-center gap-1 mt-1.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3 h-3 text-amber-400 fill-amber-400" aria-hidden="true" />
-                ))}
+            <div className="flex items-center gap-4">
+              <div>
+                <div className="text-4xl font-black text-amber-400 leading-none tabular-nums">5.0</div>
+                <div className="flex items-center gap-1 mt-1.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3 h-3 text-amber-400 fill-amber-400" aria-hidden="true" />
+                  ))}
+                </div>
+              </div>
+              <div className="w-px h-10 bg-amber-500/20" aria-hidden="true" />
+              <div>
+                <div className="text-2xl font-black text-zinc-100 leading-none">50+</div>
+                <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider mt-1">recenzí</div>
               </div>
             </div>
-            <div className="w-px h-10 bg-amber-500/20" aria-hidden="true" />
-            <div>
-              <div className="text-2xl font-black text-zinc-100 leading-none">50+</div>
-              <div className="text-[10px] font-bold text-zinc-600 uppercase tracking-wider mt-1">recenzí</div>
+            <div className="flex items-center gap-1.5 text-[10px] font-bold text-zinc-500 group-hover:text-amber-400 transition-colors duration-200 uppercase tracking-wider">
+              <span>Zobrazit ověřené recenze na Google Maps</span>
+              <ExternalLink className="w-3 h-3 shrink-0" aria-hidden="true" />
             </div>
-          </motion.div>
+          </motion.a>
         </div>
 
         {/* Bento grid */}
