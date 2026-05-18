@@ -11,7 +11,8 @@ interface Review {
   platform: 'Google' | 'Mapy.cz'
   rating: 5
   text: string
-  size?: 'large' | 'normal'
+  time?: string
+  size?: 'large' | 'normal' | 'wide'
 }
 
 const REVIEWS: Review[] = [
@@ -41,6 +42,16 @@ const REVIEWS: Review[] = [
     rating: 5,
     text: 'Vše v pořádku. Rychlá komunikace i dodání. Doporučuji.',
     size: 'normal',
+  },
+  {
+    id: 'tom-cz',
+    author: 'Tom Cz',
+    handle: 'Google recenze',
+    platform: 'Google',
+    rating: 5,
+    time: 'před rokem',
+    text: 'Před panem Morávkem u nás byly dvě firmy a že to je složité na zapojení. Pan Morávek přijel a bez problémů rychle zapojil, během hodinky vyřízeno. Je to profík a moc mu Děkujeme.',
+    size: 'wide',
   },
 ]
 
@@ -105,12 +116,12 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
       {/* Author */}
       <footer className="flex items-center gap-3 pt-4 border-t border-zinc-800/60">
         <div
-          className="w-7 h-7 bg-amber-500/15 flex items-center justify-center font-black text-amber-400 text-xs"
+          className="w-7 h-7 bg-amber-500/15 flex items-center justify-center font-black text-amber-400 text-xs shrink-0"
           aria-hidden="true"
         >
           {review.author.charAt(0).toUpperCase()}
         </div>
-        <div>
+        <div className="flex-1 min-w-0">
           <cite className="not-italic text-sm font-bold text-zinc-200 block leading-none">
             {review.author}
           </cite>
@@ -118,6 +129,11 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
             {review.handle}
           </span>
         </div>
+        {review.time && (
+          <span className="text-[10px] font-mono text-zinc-700 tracking-wider shrink-0">
+            {review.time}
+          </span>
+        )}
       </footer>
     </motion.blockquote>
   )
@@ -198,7 +214,7 @@ export default function Reviews() {
           </motion.a>
         </div>
 
-        {/* Bento grid */}
+        {/* Bento grid: large left + 2 stacked right + full-width bottom */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4" role="list">
           {/* Large card — spans 2 rows on desktop */}
           <div className="lg:row-span-2" role="listitem">
@@ -208,6 +224,10 @@ export default function Reviews() {
           <div className="flex flex-col gap-4" role="listitem">
             <ReviewCard review={REVIEWS[1]} index={1} />
             <ReviewCard review={REVIEWS[2]} index={2} />
+          </div>
+          {/* Full-width bottom card */}
+          <div className="lg:col-span-2" role="listitem">
+            <ReviewCard review={REVIEWS[3]} index={3} />
           </div>
         </div>
 
