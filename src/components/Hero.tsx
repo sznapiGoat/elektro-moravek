@@ -48,7 +48,7 @@ function TrustBadge() {
       </div>
       <span className="text-xs font-bold text-zinc-100">5.0</span>
       <span className="w-px h-3 bg-zinc-700" />
-      <span className="text-xs text-zinc-400 font-medium">50+ recenzí</span>
+      <span className="text-xs text-zinc-400 font-medium">21 hodnocení</span>
     </div>
   )
 }
@@ -100,7 +100,7 @@ function MagneticCTA() {
 
 const STATS = [
   { target: 24, suffix: '/7', label: 'Pohotovost' },
-  { target: 50, suffix: '+', label: 'Ověřených recenzí' },
+  { target: 21, suffix: '', label: 'Hodnocení' },
   { target: 5, suffix: '.0', label: 'Hvězd hodnocení' },
 ]
 

@@ -12,18 +12,26 @@ interface Review {
   rating: 5
   text: string
   time?: string
-  size?: 'large' | 'normal' | 'wide'
 }
 
 const REVIEWS: Review[] = [
+  {
+    id: 'vydra',
+    author: 'David Vydra',
+    handle: 'Google recenze',
+    platform: 'Google',
+    rating: 5,
+    time: 'před rokem',
+    text: 'Před panem Morávkem u nás byly dvě firmy a že to je složité na zapojení. Pan Morávek přijel a bez problémů rychle zapojil, během hodinky vyřízeno. Je to profík a moc mu Děkujeme.',
+  },
   {
     id: 'alkoukal',
     author: 'Alkoukal',
     handle: 'Google recenze',
     platform: 'Google',
     rating: 5,
-    text: 'Pana Morávka mohu vřele všem doporučit. Přijel rychle, jak slíbil a na čas. Práce odvedená na jedničku, poradí Vám, vyřeší každý problém.',
-    size: 'large',
+    time: 'před rokem',
+    text: 'Pana Morávka mohu vřele všem doporučit. Přijel rychle, jak slíbil a na čas. Práce odvedená na jedničku, poradí Vám, vyřeší každý problém a zařídí vše co potřebujete. Skvělá práce děkuji.',
   },
   {
     id: 'stocklova',
@@ -31,27 +39,17 @@ const REVIEWS: Review[] = [
     handle: 'Google recenze',
     platform: 'Google',
     rating: 5,
-    text: 'Super servis, pracují okamžitě, krátká doba, práce odvedená skvěle, čistě, poradí, vyřídí všechny potřebné věci.',
-    size: 'normal',
+    time: 'před 3 lety',
+    text: 'Super servis, pracují okamžitě, krátká doba, práce odvedená skvěle, čistě, poradí, vyřídí všechny potřebné věci. Všem doporučuji.',
   },
   {
-    id: 'moravkova',
-    author: 'Janna Morávková',
-    handle: 'Mapy.cz recenze',
-    platform: 'Mapy.cz',
-    rating: 5,
-    text: 'Vše v pořádku. Rychlá komunikace i dodání. Doporučuji.',
-    size: 'normal',
-  },
-  {
-    id: 'tom-cz',
-    author: 'Tom Cz',
+    id: 'pechanek',
+    author: 'Václav Pechánek',
     handle: 'Google recenze',
     platform: 'Google',
     rating: 5,
-    time: 'před rokem',
-    text: 'Před panem Morávkem u nás byly dvě firmy a že to je složité na zapojení. Pan Morávek přijel a bez problémů rychle zapojil, během hodinky vyřízeno. Je to profík a moc mu Děkujeme.',
-    size: 'wide',
+    time: 'před 11 měsíci',
+    text: 'Práce odvedena v termínu a skvělé domluvě, vyhověl veškerým mým požadavkům, mohu jedině doporučit.',
   },
 ]
 
@@ -90,11 +88,7 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       whileHover={{ y: -2, boxShadow: '0 8px 28px rgba(180, 83, 9, 0.10)' }}
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className={`
-        relative flex flex-col gap-5 p-6 border border-zinc-800/70 bg-zinc-900/40
-        hover:border-zinc-700/60 hover:bg-zinc-900/60 transition-colors duration-200
-        ${review.size === 'large' ? 'lg:row-span-2' : ''}
-      `}
+      className="relative flex flex-col gap-5 p-6 border border-zinc-800/70 bg-zinc-900/40 hover:border-zinc-700/60 hover:bg-zinc-900/60 transition-colors duration-200 h-full"
     >
       {/* Quote mark */}
       <Quote
@@ -176,7 +170,7 @@ export default function Reviews() {
               transition={{ duration: 0.4, delay: 0.15, ease: 'easeOut' }}
               className="text-sm text-zinc-500 max-w-xs"
             >
-              Ověřené recenze z Google a Mapy.cz. Celkové hodnocení 5.0 hvězd.
+              Ověřené recenze z Google. Celkové hodnocení 5,0 z 21 hodnocení.
             </motion.p>
           </div>
 
@@ -190,11 +184,11 @@ export default function Reviews() {
             transition={{ duration: 0.4, delay: 0.25, ease: 'easeOut' }}
             whileHover={{ y: -1 }}
             className="group flex flex-col gap-3 p-5 border border-amber-500/30 bg-amber-500/5 hover:border-amber-500/50 hover:bg-amber-500/8 transition-colors duration-200 shrink-0"
-            aria-label="Zobrazit ověřené recenze na Google Maps — hodnocení 5.0 z 5"
+            aria-label="Zobrazit ověřené recenze na Google Maps — hodnocení 5,0 z 21 hodnocení"
           >
             <div className="flex items-center gap-4">
               <div>
-                <div className="text-4xl font-black text-amber-400 leading-none tabular-nums">5.0</div>
+                <div className="text-4xl font-black text-amber-400 leading-none tabular-nums">5,0</div>
                 <div className="flex items-center gap-1 mt-1.5">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-3 h-3 text-amber-400 fill-amber-400" aria-hidden="true" />
@@ -203,8 +197,8 @@ export default function Reviews() {
               </div>
               <div className="w-px h-10 bg-amber-500/20" aria-hidden="true" />
               <div>
-                <div className="text-2xl font-black text-zinc-100 leading-none">50+</div>
-                <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider mt-1">recenzí</div>
+                <div className="text-2xl font-black text-zinc-100 leading-none">21</div>
+                <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-wider mt-1">hodnocení</div>
               </div>
             </div>
             <div className="flex items-center gap-1.5 text-[10px] font-bold text-zinc-500 group-hover:text-amber-400 transition-colors duration-200 uppercase tracking-wider">
@@ -214,21 +208,13 @@ export default function Reviews() {
           </motion.a>
         </div>
 
-        {/* Bento grid: large left + 2 stacked right + full-width bottom */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4" role="list">
-          {/* Large card — spans 2 rows on desktop */}
-          <div className="lg:row-span-2" role="listitem">
-            <ReviewCard review={REVIEWS[0]} index={0} />
-          </div>
-          {/* Two smaller cards stacked */}
-          <div className="flex flex-col gap-4" role="listitem">
-            <ReviewCard review={REVIEWS[1]} index={1} />
-            <ReviewCard review={REVIEWS[2]} index={2} />
-          </div>
-          {/* Full-width bottom card */}
-          <div className="lg:col-span-2" role="listitem">
-            <ReviewCard review={REVIEWS[3]} index={3} />
-          </div>
+        {/* Symmetric 2×2 grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6" role="list">
+          {REVIEWS.map((review, i) => (
+            <div key={review.id} role="listitem">
+              <ReviewCard review={review} index={i} />
+            </div>
+          ))}
         </div>
 
       </div>
