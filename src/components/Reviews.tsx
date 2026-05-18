@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
 import { Star, Quote, ExternalLink } from 'lucide-react'
 
-const MAPS_URL = 'https://www.google.com/maps?cid=5862024888204172403'
+const MAPS_URL = 'https://www.google.com/maps/place/Elektropr%C3%A1ce+Mor%C3%A1vek/@49.8722056,14.5107395,3127m/data=!3m1!1e3!4m16!1m9!3m8!1s0x470b85e037d8bcf1:0xe295da8be23f221c!2sElektropr%C3%A1ce+Mor%C3%A1vek!8m2!3d49.8752778!4d14.5118052!9m1!1b1!16s%2Fg%2F11mvw93c79!3m5!1s0x470b85e037d8bcf1:0xe295da8be23f221c!8m2!3d49.8752778!4d14.5118052!16s%2Fg%2F11mvw93c79?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D'
 
 interface Review {
   id: string
