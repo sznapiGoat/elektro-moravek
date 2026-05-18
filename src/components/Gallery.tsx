@@ -3,11 +3,10 @@ import { motion, useInView, AnimatePresence } from 'motion/react'
 import { X, ZoomIn } from 'lucide-react'
 
 const IMAGES = [
-  { src: '/images/moravek_1.jpeg', alt: 'Elektro práce Morávek – rozvaděč', code: 'IMG-01' },
-  { src: '/images/moravek_2.jpeg', alt: 'Elektro práce Morávek – instalace', code: 'IMG-02' },
-  { src: '/images/moravek_3.jpeg', alt: 'Elektro práce Morávek – montáž', code: 'IMG-03' },
-  { src: '/images/moravek_4.jpeg', alt: 'Elektro práce Morávek – revize', code: 'IMG-04' },
-  { src: '/images/moravek_5.jpeg', alt: 'Elektro práce Morávek – realizace', code: 'IMG-05' },
+  { src: '/images/moravek1.jpeg', alt: 'Elektro práce Morávek – rozvaděč', code: 'IMG-01' },
+  { src: '/images/moravek2.jpeg', alt: 'Elektro práce Morávek – instalace', code: 'IMG-02' },
+  { src: '/images/moravek3.jpeg', alt: 'Elektro práce Morávek – montáž', code: 'IMG-03' },
+  { src: '/images/moravek4.jpeg', alt: 'Elektro práce Morávek – revize', code: 'IMG-04' },
 ]
 
 function GridPlaceholder({ code }: { code: string }) {
@@ -40,19 +39,13 @@ function ImageItem({ img, index, onZoom }: ImageItemProps) {
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState(false)
 
-  const isWide = index === 0 || index === 3
-
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, scale: 0.97 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
-      className={`
-        relative group overflow-hidden border border-zinc-800/70 bg-zinc-900 cursor-zoom-in
-        ${isWide ? 'sm:col-span-2 lg:col-span-2' : ''}
-        aspect-[4/3]
-      `}
+      className="relative group overflow-hidden border border-zinc-800/70 bg-zinc-900 cursor-zoom-in aspect-[4/3]"
       role="button"
       tabIndex={0}
       aria-label={`Zvětšit: ${img.alt}`}
@@ -175,24 +168,13 @@ export default function Gallery() {
           </motion.p>
         </div>
 
-        {/* 5-image grid: 2 wide + 3 standard */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {/* Row 1: 2 wide images */}
+        {/* 4-image grid: 2 wide top row + 2 standard bottom row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {IMAGES.slice(0, 2).map((img, i) => (
-            <div key={img.code} className="lg:col-span-2">
-              <ImageItem img={img} index={i} onZoom={setZoomIndex} />
-            </div>
+            <ImageItem key={img.code} img={img} index={i} onZoom={setZoomIndex} />
           ))}
-          {/* Row 2: 3 standard images */}
           {IMAGES.slice(2).map((img, i) => (
-            <div
-              key={img.code}
-              className={`
-                ${i === 2 ? 'sm:col-span-2 lg:col-span-2' : 'lg:col-span-1'}
-              `}
-            >
-              <ImageItem img={img} index={i + 2} onZoom={setZoomIndex} />
-            </div>
+            <ImageItem key={img.code} img={img} index={i + 2} onZoom={setZoomIndex} />
           ))}
         </div>
 
