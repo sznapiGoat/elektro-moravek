@@ -9,20 +9,22 @@ const IMAGES = [
   { src: '/images/moravek4.jpeg', alt: 'Elektro práce Morávek – revize', code: 'IMG-04' },
 ]
 
-function GridPlaceholder({ code }: { code: string }) {
+function ImageSkeleton({ code }: { code: string }) {
   return (
     <div
-      className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-zinc-900"
+      className="skeleton-shimmer absolute inset-0 bg-zinc-900/80 flex items-end p-3"
       aria-hidden="true"
       style={{
         backgroundImage: [
-          'linear-gradient(rgba(245,158,11,0.05) 1px, transparent 1px)',
-          'linear-gradient(90deg, rgba(245,158,11,0.05) 1px, transparent 1px)',
+          'linear-gradient(rgba(245,158,11,0.03) 1px, transparent 1px)',
+          'linear-gradient(90deg, rgba(245,158,11,0.03) 1px, transparent 1px)',
         ].join(', '),
-        backgroundSize: '24px 24px',
+        backgroundSize: '32px 32px',
       }}
     >
-      <span className="font-mono text-[10px] font-bold tracking-widest text-zinc-700 uppercase">{code}</span>
+      <span className="font-mono text-[9px] font-bold tracking-[0.25em] text-zinc-700 uppercase bg-zinc-950/60 px-1.5 py-0.5 select-none">
+        {code}
+      </span>
     </div>
   )
 }
@@ -52,7 +54,7 @@ function ImageItem({ img, index, onZoom }: ImageItemProps) {
       onClick={() => onZoom(index)}
       onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onZoom(index) }}
     >
-      {error || !loaded ? <GridPlaceholder code={img.code} /> : null}
+      {(!loaded || error) && <ImageSkeleton code={img.code} />}
       <img
         src={img.src}
         alt={img.alt}

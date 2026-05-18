@@ -75,10 +75,11 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
       ref={ref}
       initial={{ opacity: 0, y: 22 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
+      whileHover={{ y: -2, boxShadow: '0 8px 28px rgba(180, 83, 9, 0.10)' }}
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className={`
         relative flex flex-col gap-5 p-6 border border-zinc-800/70 bg-zinc-900/40
-        hover:border-zinc-700/70 hover:bg-zinc-900/60 transition-all duration-200
+        hover:border-zinc-700/60 hover:bg-zinc-900/60 transition-colors duration-200
         ${review.size === 'large' ? 'lg:row-span-2' : ''}
       `}
     >

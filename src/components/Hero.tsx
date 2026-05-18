@@ -88,7 +88,7 @@ function MagneticCTA() {
       }}
       whileTap={{ scale: 0.97 }}
       style={{ willChange: 'transform' }}
-      className="group flex items-center gap-3 px-7 py-4 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-black text-sm tracking-wide uppercase transition-colors duration-150 select-none cursor-pointer"
+      className="group flex items-center gap-3 px-7 py-4 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-black text-sm tracking-wide uppercase transition-colors duration-150 select-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
       aria-label="Zavolat na +420 775 551 927"
     >
       <Phone className="w-4.5 h-4.5" aria-hidden="true" />
@@ -159,7 +159,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Primary heading */}
-        <h1 className="mb-6" aria-label="Elektro pohotovost Morávek – havarijní elektrikář Praha a Středočeský kraj">
+        <h1 className="mb-4" aria-label="Elektro pohotovost Morávek – havarijní elektrikář Praha a Středočeský kraj">
           <span className="sr-only">Elektro pohotovost Morávek – </span>
           <div className="overflow-hidden mb-1">
             <motion.span
@@ -198,10 +198,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.85, ease: 'easeOut' }}
-          className="flex items-center gap-3 mb-4"
+          className="flex items-center gap-3 mb-2"
         >
           <span className="w-8 h-px bg-amber-500/60" aria-hidden="true" />
-          <p className="text-base sm:text-lg font-semibold text-zinc-300 tracking-wide">
+          <p className="text-base sm:text-lg font-bold text-zinc-300 tracking-wide">
             Jan Morávek — havarijní elektrikář
           </p>
         </motion.div>
@@ -225,11 +225,11 @@ export default function Hero() {
         >
           <MagneticCTA />
           <a
-            href="mailto:ele.jkmm@gmail.com"
-            className="flex items-center gap-2 px-7 py-4 border border-zinc-700/60 hover:border-zinc-600 text-zinc-300 hover:text-zinc-100 font-semibold text-sm tracking-wide uppercase transition-colors duration-150"
-            aria-label="Napsat email na ele.jkmm@gmail.com"
+            href="#kontakt"
+            className="flex items-center gap-2 px-7 py-4 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/50 font-semibold text-sm tracking-wide uppercase transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+            aria-label="Přejít na kontaktní sekci"
           >
-            <MapPin className="w-4 h-4 text-zinc-500" aria-hidden="true" />
+            <MapPin className="w-4 h-4 text-zinc-600" aria-hidden="true" />
             Kde působíme
           </a>
         </motion.div>

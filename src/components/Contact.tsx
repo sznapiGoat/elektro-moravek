@@ -60,12 +60,12 @@ export default function Contact() {
               </div>
               <div>
                 <div className="text-xs font-bold text-amber-500/80 uppercase tracking-widest">Pohotovost 24/7</div>
-                <div className="text-xs text-zinc-600 font-medium uppercase tracking-wider">Okamžitý výjezd</div>
+                <div className="text-xs text-zinc-500 font-medium uppercase tracking-wider">Okamžitý výjezd</div>
               </div>
             </div>
 
             <div className="mb-6">
-              <div className="text-xs font-bold text-zinc-600 uppercase tracking-widest mb-2">Telefon</div>
+              <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-2">Telefon</div>
               <a
                 href="tel:+420775551927"
                 className="text-3xl sm:text-4xl font-black text-amber-400 hover:text-amber-300 transition-colors tracking-tight"
@@ -77,7 +77,7 @@ export default function Contact() {
 
             <a
               href="tel:+420775551927"
-              className="flex items-center justify-center gap-2.5 w-full py-4 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-black text-sm tracking-wide uppercase transition-colors duration-150"
+              className="flex items-center justify-center gap-2.5 w-full py-4 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-black text-sm tracking-wide uppercase transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
               aria-label="Zavolat nyní – pohotovostní linka"
             >
               <Phone className="w-4 h-4" aria-hidden="true" />
@@ -98,7 +98,7 @@ export default function Contact() {
                 <Mail className="w-4 h-4 text-zinc-400" aria-hidden="true" />
               </div>
               <div>
-                <div className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-1">Email</div>
+                <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Email</div>
                 <a
                   href="mailto:ele.jkmm@gmail.com"
                   className="text-sm font-semibold text-zinc-200 hover:text-amber-400 transition-colors"
@@ -114,9 +114,9 @@ export default function Contact() {
                 <MapPin className="w-4 h-4 text-zinc-400" aria-hidden="true" />
               </div>
               <div>
-                <div className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-1">Oblast působení</div>
+                <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Oblast působení</div>
                 <div className="text-sm font-semibold text-zinc-200 leading-snug">Praha a Středočeský kraj</div>
-                <div className="text-xs text-zinc-600 mt-0.5">Kamenný Přívoz, Pohoří a okolí</div>
+                <div className="text-xs text-zinc-500 mt-0.5">Kamenný Přívoz, Pohoří a okolí</div>
               </div>
             </div>
 
@@ -126,9 +126,9 @@ export default function Contact() {
                 <Building2 className="w-4 h-4 text-zinc-400" aria-hidden="true" />
               </div>
               <div>
-                <div className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-1">Identifikace</div>
+                <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Identifikace</div>
                 <div className="text-sm font-semibold text-zinc-200">Jan Morávek</div>
-                <div className="font-mono text-xs text-zinc-600 mt-0.5">IČO 06153194</div>
+                <div className="font-mono text-xs text-zinc-500 mt-0.5">IČO 06153194</div>
               </div>
             </div>
           </motion.div>

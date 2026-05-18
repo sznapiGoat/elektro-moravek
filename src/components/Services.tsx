@@ -76,9 +76,10 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       ref={ref}
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
+      whileHover={{ y: -2, boxShadow: '0 8px 28px rgba(180, 83, 9, 0.10)' }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       className={`
-        relative group flex flex-col gap-5 p-6 border transition-all duration-200 cursor-default
+        relative group flex flex-col gap-5 p-6 border transition-colors duration-200 cursor-default
         ${service.accent
           ? 'border-amber-500/50 bg-amber-500/5 hover:bg-amber-500/8 hover:border-amber-500/70'
           : 'border-zinc-800/70 bg-zinc-900/40 hover:bg-zinc-900/70 hover:border-zinc-700/70'}
